@@ -9,7 +9,7 @@ import useAuth from '../../../hooks/useAuth';
 const Login = () => {
     const [loginData, setLoginData] = useState({});
 
-    const { loginUser, user, isLoading, authError } = useAuth();
+    const { loginUser, user, singInWithGoogle, isLoading, authError } = useAuth();
 
     const location = useLocation();
     const history = useHistory();
@@ -25,6 +25,11 @@ const Login = () => {
         loginUser(loginData.email, loginData.password, location, history);
         e.preventDefault();
     }
+
+    const handleGoogleSignIn = () => {
+        singInWithGoogle(location, history);
+    }
+
     return (
         <Container>
             <Grid container spacing={2}>
@@ -58,6 +63,10 @@ const Login = () => {
                             </NavLink>
                         </form>
                     }
+
+                    <p>----------------------</p>
+                    <Button onClick={handleGoogleSignIn} variant="contained">Google Sign In</Button>
+
                     {isLoading && <CircularProgress />}
                     {user?.email && <Alert severity="success">login successfull!</Alert>
                     }
