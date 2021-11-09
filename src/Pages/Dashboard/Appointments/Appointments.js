@@ -12,7 +12,7 @@ const Appointments = ({ date }) => {
     const { user, token } = useAuth();
     const [appointments, setAppointments] = useState([]);
     useEffect(() => {
-        const url = `https://young-plains-96284.herokuapp.com/appointments?email=${user.email}&date=${date}`;
+        const url = `https://young-plains-96284.herokuapp.com/appointments?email=${user.email}&date=${date.toLocaleDateString()}`;
         fetch(url, {
             headers: {
                 'authorization': `Bearer ${token}`
