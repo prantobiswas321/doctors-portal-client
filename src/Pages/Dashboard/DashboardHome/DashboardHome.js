@@ -9,7 +9,7 @@ const DashboardHome = () => {
         <Grid container spacing={2}>
             <Grid item xs={12} sm={5}>
                 <Calender
-                    date={date}
+                    date={date.toLocaleDateString()}
                     setDate={setDate}
                 ></Calender>
             </Grid>

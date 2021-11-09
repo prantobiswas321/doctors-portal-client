@@ -45,7 +45,7 @@ const BookingModal = ({ openBooking, handleBookingClose, booking, date, setBooki
             date: date.toLocaleDateString()
         }
         // send to server
-        fetch('http://localhost:5000/appointments', {
+        fetch('https://young-plains-96284.herokuapp.com/appointments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -115,7 +115,7 @@ const BookingModal = ({ openBooking, handleBookingClose, booking, date, setBooki
                             disabled
                             sx={{ width: '90%', m: 1 }}
                             id="outlined-size-small"
-                            defaultValue={date.toDateString()}
+                            defaultValue={date.toLocaleDateString()}
                             size="small"
                         />
                         <Button type="submit" variant="contained">Submit</Button>
